@@ -1,0 +1,72 @@
+body{
+    background-color: lightgray;
+}
+
+.output-screen {
+    margin: 22% 3% 16% 3%;
+    height: 75px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.calculator-container {
+    width: 400px;
+    height: 70vh;
+    border-radius: 50px;
+    color: white;
+}
+
+.digits-tile {
+    width: 20px;
+    padding: 20px;
+    text-align: center;
+    background: transparent;
+    border-radius: 6px;
+    box-shadow: 2px -1px 18px #888888;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.resultValue {
+    margin-top: 10px;
+    font-size: 45px;
+    min-height: 45px;
+}
+
+.inputString {
+    color: #c3abab;
+    font-size: 30px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.lightMode {
+    background: linear-gradient(rgba(76,54,88,1) 14%, rgba(200,32,55,1) 92%);
+}
+
+.darkMode {
+    background: #374252;
+}
+
+@media screen and (max-width:800px) {
+    .calculator-container {
+        height: 97.5vh;
+    }
+    .digitsGrid{
+        padding-left: 20px !important;
+    }
+}
+
+@media screen and (device-aspect-ratio: 40/71) {
+    .output-screen {
+        margin: 11% 3% 12% 3%;
+    }
+    .digitsGrid {
+        padding-left: 18px !important;
+        max-width: 24% !important;
+    }
+}
