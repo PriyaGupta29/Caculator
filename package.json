@@ -7,6 +7,7 @@
     "webpack": "webpack",
     "start": "webpack serve",
     "test": "jest",
+    "build": "webpack",
     "prettier": "prettier  --loglevel warn  --trailing-comma none --write \"{*.js,*.ts,*.tsx,*.css,*.md,*.json}\""
   },
   "keywords": [],
