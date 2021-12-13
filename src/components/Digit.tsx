@@ -7,7 +7,7 @@ interface DigitProps {
 
 export const Digit = (props: DigitProps) => {
     return (
-        <div className="digits-tile" onClick={()=>props.onClick(props.title)} data-test-id="tile-component">
+        <div className="digits-tile" onClick={()=>props.onClick(props.title)} data-testid="tile-component">
             {props.title}
         </div>
     )

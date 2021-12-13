@@ -59,7 +59,7 @@ export default function ThemeSwitch() {
 
   const onChange = (event: any) => {
     setChecked(event.target.checked);
-    calcStore?.setMode(event.target.checked);
+    calcStore.setMode(event.target.checked);
   };
 
   return (
@@ -70,6 +70,7 @@ export default function ThemeSwitch() {
             sx={{ m: 1 }}
             checked={checked}
             onChange={onChange}
+            data-testid="switch"
           />
         }
         label="Black Theme"

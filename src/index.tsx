@@ -1,15 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Calculator } from './components/Calculator';
-import { OutputScreen } from './components/OutputScreen';
-import GlobalStore from './store/GlobalStore';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Calculator } from "./components/Calculator";
+import { Store1 } from "./store/calcStore";
+import GlobalStore from "./store/GlobalStore";
 
-const HelloWorld = () => {
-    return (
-        <GlobalStore>
-            <Calculator />
-        </GlobalStore>
-    );
-}
+const Main = () => {
+  const calcStore = new Store1();
 
-ReactDOM.render(<HelloWorld />, document.getElementById("root"));
+  const rootStore = {
+    calcStore,
+  };
+  return (
+    <GlobalStore store={rootStore}>
+      <Calculator />
+    </GlobalStore>
+  );
+};
+
+ReactDOM.render(<Main />, document.getElementById("root"));

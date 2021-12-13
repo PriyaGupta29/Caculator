@@ -1,37 +1,33 @@
 import { createContext, FC } from "react";
-import React from 'react';
-import { Store1 } from "./calcStore";
+import React from "react";
 
 export interface ICalcStoreContext {
-    tileTiles: string[][];
-    finalOutput: number;
-    mode: string;
-    setFinalOutput: (value: number) => void;
-    setMode: (isSwitchChecked: boolean) => void;
+  tileTiles: string[][];
+  finalOutput: number;
+  mode: string;
+  setFinalOutput: (value: number) => void;
+  setMode: (isSwitchChecked: boolean) => void;
 }
 
 export interface IRootStoreContext {
-    calcStore: ICalcStoreContext;
+  calcStore: ICalcStoreContext;
 }
 
 export const StoreContext = createContext<IRootStoreContext>(
-    {} as IRootStoreContext
+  {} as IRootStoreContext
 );
 
 export interface StoreProviderProps {
-    children: any;
+  children: any;
+  store: IRootStoreContext;
 }
 
-const StoreProvider: FC<StoreProviderProps> = ({ children }) => {
-    const calcStore = new Store1();
-
-    const rootStore = {
-        calcStore
-    };
-
-    return (
-        <StoreContext.Provider value={rootStore}>{children}</StoreContext.Provider>
-    );
+const StoreProvider: FC<StoreProviderProps> = (props) => {
+  return (
+    <StoreContext.Provider value={props.store}>
+      {props.children}
+    </StoreContext.Provider>
+  );
 };
 
 export default StoreProvider;
