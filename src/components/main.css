@@ -13,9 +13,9 @@ body{
 
 .calculator-container {
     width: 400px;
-    height: 70vh;
     border-radius: 50px;
     color: white;
+    padding-bottom: 10px;
 }
 
 .digits-tile {
@@ -55,6 +55,7 @@ body{
 @media screen and (max-width:800px) {
     .calculator-container {
         height: 97.5vh;
+        padding-bottom: 0;
     }
     .digitsGrid{
         padding-left: 20px !important;
