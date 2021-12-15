@@ -71,3 +71,14 @@ body{
         max-width: 24% !important;
     }
 }
+
+
+@media screen and (max-width: 1080px) and (max-height: 2340px) {
+    .calculator-container {
+        height: 97.5vh;
+        padding-bottom: 0;
+    }
+    .digitsGrid{
+        padding-left: 20px !important;
+    }
+}
