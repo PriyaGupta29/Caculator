@@ -54,7 +54,7 @@ body{
 
 @media screen and (max-width:800px) {
     .calculator-container {
-        height: 97.5vh;
+        height: 97vh;
         padding-bottom: 0;
     }
     .digitsGrid{
@@ -73,9 +73,9 @@ body{
 }
 
 
-@media screen and (max-width: 1080px) and (max-height: 2340px) {
+@media screen and (width: 1080px) and (height: 2340px) {
     .calculator-container {
-        height: 97.5vh;
+        height: unset;
         padding-bottom: 0;
     }
     .digitsGrid{
