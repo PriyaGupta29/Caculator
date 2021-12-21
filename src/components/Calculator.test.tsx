@@ -54,6 +54,17 @@ describe("calculator", () => {
     expect(getByText("25")).toBeInTheDocument();
   });
 
+  it("should replace last operator if clicked on any two operators simultaneously", () => {
+    const { getByText, queryByText } = render(<Calculator />);
+    fireEvent.click(getByText("2"));
+    fireEvent.click(getByText("5"));
+    fireEvent.click(getByText("+"));
+    fireEvent.click(getByText("-"));
+    expect(queryByText("25+")).not.toBeInTheDocument();
+    expect(queryByText("25+-")).not.toBeInTheDocument();
+    expect(getByText("25-")).toBeInTheDocument();
+  });
+
   it("should be able to perform calculation", () => {
     const { getByText } = render(<Calculator />);
     fireEvent.click(getByText("2"));
@@ -62,5 +73,33 @@ describe("calculator", () => {
     fireEvent.click(getByText("5"));
     fireEvent.click(getByText("="));
     expect(getByText("30")).toBeInTheDocument();
+  });
+
+  it("should be able to perform percentage calculation", () => {
+    const { getByText } = render(<Calculator />);
+    fireEvent.click(getByText("2"));
+    fireEvent.click(getByText("%"));
+    fireEvent.click(getByText("="));
+    expect(getByText("0.02")).toBeInTheDocument();
+  });
+
+  it("should clear values when clicked on C", () => {
+    const { getByText, queryByText } = render(<Calculator />);
+    fireEvent.click(getByText("2"));
+    fireEvent.click(getByText("5"));
+    expect(getByText("25")).toBeInTheDocument();
+    fireEvent.click(getByText("C"));
+    expect(queryByText("25")).not.toBeInTheDocument();
+  });
+
+  it("should delete last value when clicked on D", () => {
+    const { getByText, queryByText } = render(<Calculator />);
+    fireEvent.click(getByText("2"));
+    fireEvent.click(getByText("5"));
+    expect(getByText("25")).toBeInTheDocument();
+    fireEvent.click(getByText("D"));
+    expect(queryByText("25")).not.toBeInTheDocument();
+    fireEvent.click(getByText("7"));
+    expect(queryByText("27")).toBeInTheDocument();
   });
 });
